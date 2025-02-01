@@ -1,0 +1,23 @@
+﻿@page "/"
+@inject ProductService productService
+
+<PageTitle>Home</PageTitle>
+
+<div class="container">
+	<div class="row">
+		@foreach(var product in _products){
+
+			<ProductItem product="@product"></ProductItem>
+		}
+
+	</div>
+</div>
+
+@code{
+	List<Product> _products = new List<Product>();
+	protected override void OnInitialized()
+	{
+		_products = productService.GetProducts();
+		base.OnInitialized();
+	}
+}
