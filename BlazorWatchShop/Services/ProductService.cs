@@ -76,7 +76,16 @@ namespace BlazorWatchShop.Services
 
         }
 
-        public List<Product> GetProducts() => _inMemoryProducts;
+        public List<ProductItemDto> GetProducts() => _inMemoryProducts
+            .Select(x => new ProductItemDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description.Substring(0,Math.Min(50,x.Description.Length)),
+                ImageUrl = x.ImageUrl,
+                Price = x.Price
+            }
+            ).ToList();
 
         public Product GetProduct(int id) => _inMemoryProducts.FirstOrDefault(x => x.Id == id);
     }

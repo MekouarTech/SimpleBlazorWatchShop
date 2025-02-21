@@ -2,32 +2,39 @@
 @inject ProductService productService
 
 
-<div class="card">
-	<div class="d-flex justify-content-center p-2">
-		<img src="@_product.ImageUrl" height="250" alt="Alternate Text" />
-	</div>
-	<div class="card-body">
-		<h5 class="card-title">@_product.Name</h5>
-		<p class="card-text">@_product.Description</p>
-		<p class="text-secondary text-center h2 font-weight-bold">
-			@_product.Price.ToString("C")
-		</p>
+<div class="zoom@_zoom" @onclick="ClickToZoom">
+
+	<ProductItem Id="@_product.Id"
+	Description="@_product.Description"
+	ImageUrl="@_product.ImageUrl"
+	Name="@_product.Name"
+	Price="@_product.Price"
+	>
+		<h3>Specifications</h3>
 		<p>
 			@((MarkupString)_product.Specifications)
 		</p>
-		<a href="#" class="btn btn-danger w-100"> <i class="fas fa-shopping">Add To Card @_product.Id</i> </a>
-	</div>
-</div>
 
+	</ProductItem>
+</div>
 
 @code {
 	Product _product = null;
+	int _zoom = 0;
+
+	[Parameter]
+	public int Id { get; set; }
 
 	protected override void OnInitialized()
 	{
 		_product = productService.GetProduct(Id);
 	}
 
-	[Parameter]
-	public int Id { get; set; }
+	private void ClickToZoom()
+	{
+		Console.WriteLine(_zoom);
+		_zoom++;
+		if (_zoom > 3)
+			_zoom = 0;
+	}
 }

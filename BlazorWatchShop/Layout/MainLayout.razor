@@ -10,7 +10,16 @@
         </div>
 
         <article class="content px-4">
-            @Body
+            <CascadingValue 
+                Value="@_currencyFormat" 
+                Name="CurrencyFormat"
+            >
+                @Body
+            </CascadingValue>
         </article>
     </main>
 </div>
+
+@code{
+    string _currencyFormat = "C0";
+}

@@ -1,20 +1,33 @@
 ﻿@page "/"
 @inject ProductService productService
 
-<PageTitle>Home</PageTitle>
+<PageTitle>This is Home</PageTitle>
 
 <div class="container">
 	<div class="row">
-		@foreach(var product in _products){
 
-			<ProductItem product="@product"></ProductItem>
+		<h1>All Products</h1>
+
+		@foreach (var product in _products)
+		{
+			<div class="col-sm-4 p-2">
+
+				<ProductItem
+					Id="@product.Id"
+					Description="@product.Description"
+					ImageUrl="@product.ImageUrl"
+					Name="@product.Name"
+					Price="@product.Price"
+				>
+				</ProductItem>
+			</div>
 		}
 
 	</div>
 </div>
 
 @code{
-	List<Product> _products = new List<Product>();
+	List<ProductItemDto> _products = new List<ProductItemDto>();
 	protected override void OnInitialized()
 	{
 		_products = productService.GetProducts();
