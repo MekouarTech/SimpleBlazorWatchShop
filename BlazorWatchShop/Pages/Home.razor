@@ -4,6 +4,13 @@
 <PageTitle>This is Home</PageTitle>
 
 <div class="container">
+
+	@if(!string.IsNullOrWhiteSpace(_addedMessage)){
+		<div class="alert alert-success" role="alert">
+			@_addedMessage
+		</div>
+	}
+
 	<div class="row">
 
 		<h1>All Products</h1>
@@ -13,11 +20,12 @@
 			<div class="col-sm-4 p-2">
 
 				<ProductItem
-					Id="@product.Id"
-					Description="@product.Description"
-					ImageUrl="@product.ImageUrl"
-					Name="@product.Name"
-					Price="@product.Price"
+				Id="@product.Id"
+				Description="@product.Description"
+				ImageUrl="@product.ImageUrl"
+				Name="@product.Name"
+				Price="@product.Price"
+				OnAddedToCart="ShowAddedMessage"
 				>
 				</ProductItem>
 			</div>
@@ -28,9 +36,16 @@
 
 @code{
 	List<ProductItemDto> _products = new List<ProductItemDto>();
+	string _addedMessage = "";
+
 	protected override void OnInitialized()
 	{
 		_products = productService.GetProducts();
 		base.OnInitialized();
+	}
+
+	private void ShowAddedMessage(string productName){
+		_addedMessage = $"{productName} Has Been Added Successfully!";
+		Console.WriteLine(_addedMessage);
 	}
 }

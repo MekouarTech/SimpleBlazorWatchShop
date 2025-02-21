@@ -20,7 +20,7 @@ namespace BlazorWatchShop.Services
             },
             new Product{
                 Id = 2,
-                Name= "Apple Watch Ultra 2 GPS + Cellular Titanium Case",
+                Name= "Sumsung Watch Ultra",
                 Description = "Jusqu’à 36 heures d’autonomie en utilisation normale. Jusqu’à 72 heures en mode économie d’énergie◊Voir les mentions légales.",
                 ImageUrl ="https://uno.ma/pub/media/catalog/product/cache/af8d7fd2c4634f9c922fba76a4a30c04/l/d/ld0005894992_1.jpeg",
                 Price = 350,
@@ -28,7 +28,7 @@ namespace BlazorWatchShop.Services
             },
             new Product{
                 Id = 3,
-                Name= "Apple Watch Ultra 2 GPS + Cellular Titanium Case",
+                Name= "Huawei Watch Ultra 5 GPS",
                 Description = "Jusqu’à 36 heures d’autonomie en utilisation normale. Jusqu’à 72 heures en mode économie d’énergie◊Voir les mentions légales.",
                 ImageUrl ="https://uno.ma/pub/media/catalog/product/cache/af8d7fd2c4634f9c922fba76a4a30c04/u/1/u1.jpg",
                 Price = 2550,
@@ -38,7 +38,7 @@ namespace BlazorWatchShop.Services
             new Product
             {
                 Id = 4,
-                Name = "Apple Watch Ultra 2 GPS + Cellular Titanium Case",
+                Name = "Xiomi Watch Ultra Titanium Case",
                 Description = "Jusqu’à 36 heures d’autonomie en utilisation normale. Jusqu’à 72 heures en mode économie d’énergie◊Voir les mentions légales.",
                 ImageUrl = "https://uno.ma/pub/media/catalog/product/cache/af8d7fd2c4634f9c922fba76a4a30c04/l/d/ld0005894992_1.jpeg",
                 Price = 1650,
@@ -48,7 +48,7 @@ namespace BlazorWatchShop.Services
             new Product
             {
                 Id = 5,
-                Name = "Apple Watch Ultra 2 GPS + Cellular Titanium Case",
+                Name = "Goui Watch Cellular Titanium Case",
                 Description = "Jusqu’à 36 heures d’autonomie en utilisation normale. Jusqu’à 72 heures en mode économie d’énergie◊Voir les mentions légales.",
                 ImageUrl = "https://uno.ma/pub/media/catalog/product/cache/af8d7fd2c4634f9c922fba76a4a30c04/u/1/u1.jpg",
                 Price = 850,

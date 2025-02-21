@@ -12,7 +12,7 @@
 
 		@ChildContent
 
-		<a href="#" class="btn btn-danger w-100"> <i class="fas fa-shopping">Add To Card</i> </a>
+		<a href="#" @onclick="async() => await OnAddedToCart.InvokeAsync(Name)" class="btn btn-danger w-100"> <i class="fas fa-shopping">Add To Card</i> </a>
 	</div>
 </div>
 
@@ -33,4 +33,7 @@
 
 	[CascadingParameter(Name = "CurrencyFormat")]
 	public string currencyFormat { get; set; }
+
+	[Parameter]
+	public EventCallback<string> OnAddedToCart { get; set; }
 }
