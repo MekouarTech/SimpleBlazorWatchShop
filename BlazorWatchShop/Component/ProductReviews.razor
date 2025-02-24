@@ -1,0 +1,75 @@
+﻿@if (!_isReviewed)
+{
+	<h3>Add Review</h3>
+
+	<EditForm Model="_review" OnValidSubmit="AddReview">
+		<DataAnnotationsValidator />
+		<ValidationSummary />
+
+		<div class="form-group">
+			<label for="name">Name</label>
+			<InputText id="name" class="form-control" @bind-Value="_review.ReviewerName" />
+		</div>
+
+		<div class="form-group">
+			<label for="reviewer">Email</label>
+			<InputText id="reviewer" class="form-control" @bind-Value="_review.ReviewerEmail" />
+		</div>
+
+		<div class="form-group">
+			<label for="rate">Rate</label>
+			<InputSelect id="rate" class="form-control" @bind-Value="_review.Rate" >
+				<option value="">Select Your Rate...</option>
+				<option value="Bad">Bad</option>
+				<option value="Good">Good</option>
+				<option value="Very Good">Very Good</option>
+			</InputSelect>
+		</div>
+
+		<div class="form-group">
+			<label for="comment">Comment</label>
+			<InputTextArea id="comment" class="form-control" @bind-Value="_review.Comment" />
+		</div>
+		<br />
+		<button type="submit" class="btn btn-primary">Add Review</button>
+	</EditForm>
+}
+
+@if (Reviews.Any())
+{
+	<h3>Reviews</h3>
+}
+
+@foreach (var review in Reviews)
+{
+	<p>
+		@review.ReviewerName <strong>(@review.Rate)</strong>
+	</p>
+	<p>
+		@review.ReviewerEmail
+	</p>
+	<p>
+
+	</p>
+	<p>
+		@review.Comment
+	</p>
+	<hr style="border:1px solid #333" />
+}
+<br />
+<br />
+
+@code {
+	[Parameter]
+	public List<ProductReview> Reviews { get; set; }
+
+	public ProductReview _review = new ProductReview();
+
+	bool _isReviewed = false;
+
+	public void AddReview()
+	{
+		Reviews.Insert(0,_review);
+		_isReviewed = true;
+	}
+}

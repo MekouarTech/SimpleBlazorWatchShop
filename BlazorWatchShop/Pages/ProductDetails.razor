@@ -2,7 +2,8 @@
 @inject ProductService productService
 
 
-<div class="zoom@_zoom" @onclick="ClickToZoom">
+<div class="zoom@_zoom">
+	<!--@onclick="ClickToZoom"-->
 
 	<ProductItem Id="@_product.Id"
 	Description="@_product.Description"
@@ -15,6 +16,7 @@
 			@((MarkupString)_product.Specifications)
 		</p>
 
+		<ProductReviews Reviews="_product.Reviews"></ProductReviews>
 	</ProductItem>
 </div>
 
